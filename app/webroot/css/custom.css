@@ -1,0 +1,91 @@
+#content {min-height: 600px; } 
+.photo , .profile-info {display: inline-block; vertical-align: middle;}
+.photo img { width: 200px; vertical-align: middle; }
+.hub-section {display: block;}
+h1 {
+    font-weight: normal;
+    font-size: 25px;
+}
+.message {
+    font-size: 15px;
+}
+.thumb {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+#list {
+    background: url(/message_board/img/default-photo.png) no-repeat;
+    background-size: 217px 100px;
+    width: 217px;
+    height: 100px;
+    display: block;
+    border: 1px solid;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+}
+#files{vertical-align: middle;} /* width: 126px; */
+
+span.select2-dropdown.select2-dropdown--below {
+    color: #333;
+}
+.select2-container,span.select2-dropdown.select2-dropdown--below {
+    width: 200px !important;
+}
+.select2-results img.img-flag {
+    width: 39px;
+}
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.content-span{min-height: 139px; line-height: 126px;padding: 0 10px;}
+.created-span{text-align: right;padding: 0 10px;}
+
+.message-list .photo{
+    width: 118px;
+}
+
+.message-list ul li {
+    display: block;
+    width: 100%;
+    clear: both;
+    /*border: 1px solid;*/
+    padding: 10px;
+    overflow: hidden;
+    /*border-bottom: none;*/
+}
+.message-list ul li:last-child { border-bottom: 1px solid; }
+/*.message-list ul li div {}*/
+/*.message-list ul li a{display: inline-block;width: 20%;vertical-align: middle;}*/
+/*.message-list ul li img{width: 20%;}*/
+/*.message-list ul li p{display: inline-block;width: 80%;vertical-align: middle;}*/
+/*.message-list ul li:nth-child(even) img{*/
+    /*float:right;*/
+/*}*/
+
+.pagination .current,
+.pagination .disabled {
+    float: left;
+    padding: 0 14px;
+
+    color: #999;
+    cursor: default;
+    line-height: 34px;
+    text-decoration: none;
+
+    border: 1px solid #DDD;
+    border-left-width: 0;
+}
+
+.delete, .delete-detail{background-color: transparent;border: none; padding: 10px;}
+
+textarea#MessageContent {
+    max-height: 104px;
+    overflow-y: scroll;
+    padding: 0;
+    width: 100%;    
+    font-size: 15px;
+}
