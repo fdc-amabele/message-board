@@ -14,7 +14,7 @@ class MessagesController extends AppController {
 		
     public function index() {
         $data['id'] = $this->Auth->user('id');
-        $limit = 10;
+        $limit = 2;
         $currpage = 1;
         $search = '';
         $this->set('limit',$limit);  
@@ -29,9 +29,10 @@ class MessagesController extends AppController {
         }
 
         $results = $this->Message->get_messages($limit,$currpage,$search);
+        // print_r($results);
         $this->set('messages', $results['results']); 
         $data['messages'] = $results['results'];
-        $data['totalrows'] = $results['totalrows'][0][0]['count'];
+        $data['totalrows'] = $results['totalrows'];
         $data['next'] = true;
         if ($this->request->is('ajax')) {
             echo json_encode($data);
@@ -111,7 +112,7 @@ class MessagesController extends AppController {
     } 
 
     public function details($id){
-        $limit = 10;
+        $limit = 2;
         $currpage = 1;
         $search = '';
         $this->set('limit',$limit);        
@@ -126,7 +127,7 @@ class MessagesController extends AppController {
 
         $results = $this->Message->get_message_details($limit,$currpage,$id);
         $data['messages'] = $results['results'];
-        $data['totalrows'] = $results['totalrows'][0][0]['count'];
+        $data['totalrows'] = $results['totalrows'];
         $this->set('messages', $results['results']); 
         $data['next'] = true;
         if ($this->request->is('ajax')) {
