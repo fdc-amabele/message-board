@@ -41,24 +41,23 @@ class Message extends AppModel {
 							content
 					FROM messages msgs
 					INNER JOIN (
-					    SELECT (CASE WHEN to_id = $id 
-					    			THEN from_id 
-					    		ELSE to_id 
-					    		END
-					    		) as id, 
-					    		max(created) as msg_date
-					    FROM messages
-					    WHERE to_id = $id OR 
-					    	  from_id = $id
-					    group by (CASE WHEN to_id = $id THEN from_id 
-					    		  ELSE to_id 
-					    		  END
-					    		  )
+								    SELECT (CASE WHEN to_id = $id 
+								    			THEN from_id 
+								    		ELSE to_id 
+								    		END
+								    		) as id, 
+								    		max(created) as msg_date
+								    FROM messages
+								    WHERE (to_id = $id OR from_id = $id) AND content like '%".$search."%' 
+								    group by (CASE WHEN to_id = $id THEN from_id
+								    		  ELSE to_id 
+								    		  END
+								    		  )
 					) tm on (CASE WHEN to_id = $id THEN from_id 
 							 ELSE to_id 
 							 END) = tm.id and msgs.created = tm.msg_date
 				) as messages
-				LEFT JOIN users on messages.id = users.id".$search_query."
+				LEFT JOIN users on messages.id = users.id
 				ORDER BY msg_date DESC
 				LIMIT ".$offset.",".$limit."   												
     		");
