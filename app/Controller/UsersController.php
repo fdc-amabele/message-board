@@ -96,11 +96,13 @@ class UsersController extends AppController {
 			}
 
 		    $this->request->data['User']['birthdate'] = date('Y-m-d H:i:s', strtotime($this->request->data['User']['birthdate']));
-		   
+	
 
-		    if(empty($this->request->data['User']['password_update'])){
-		    	unset($this->User->validate["password_update"]);
-		    	unset($this->User->validate["password_confirm_update"]);
+		    if(empty($this->request->data['User']['password'])){
+		    	unset($this->User->validate["password"]);
+		    	unset($this->User->validate["password_confirm"]);
+		    	unset($this->request->data['User']['password']);
+		    	unset($this->request->data['User']['password_confirm']);
 		    }
 		   
 	     	if ($this->User->save($this->request->data)) {

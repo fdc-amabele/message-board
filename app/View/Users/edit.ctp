@@ -28,8 +28,12 @@
 				);
 
 				echo $this->Form->input('email');
-		        echo $this->Form->input('password_update', array( 'label' => 'New Password (leave empty if you do not want to change)', 'maxLength' => 255, 'type'=>'password','required' => 0));
-				echo $this->Form->input('password_confirm_update', array('label' => 'Confirm New Password *', 'maxLength' => 255, 'title' => 'Confirm New password', 'type'=>'password','required' => 0));
+		        echo $this->Form->input('password', array( 'label' => 'New Password (leave empty if you do not want to change)', 'maxLength' => 255, 'type'=>'password','required' => 0, 'value' => false));
+				echo $this->Form->input('password_confirm', array('label' => 'Confirm New Password *', 'maxLength' => 255, 'title' => 'Confirm New password', 'type'=>'password','required' => 0));
+
+
+		        // echo $this->Form->input('password_update', array( 'label' => 'New Password (leave empty if you do not want to change)', 'maxLength' => 255, 'type'=>'password','required' => 0));
+				// echo $this->Form->input('password_confirm_update', array('label' => 'Confirm New Password *', 'maxLength' => 255, 'title' => 'Confirm New password', 'type'=>'password','required' => 0));
 
 				echo $this->Form->input('hubby', array('type' => 'textarea'));
 				echo $this->Form->submit('Update', array('class' => 'form-submit',  'title' => 'Click here to add the user') ); 
