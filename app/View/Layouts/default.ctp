@@ -86,6 +86,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php 
 	$limit = isset($limit) ? $limit : '';
 	echo $this->Form->input('limit', array('type' => 'hidden', 'value' => $limit));
-	//echo $this->element('sql_dump'); ?>
+	echo $this->element('sql_dump'); ?>
 </body>
 </html>

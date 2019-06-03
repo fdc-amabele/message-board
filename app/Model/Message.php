@@ -31,7 +31,7 @@ class Message extends AppModel {
 							ELSE to_id 
 							END
 							) as id, 
-							DATE_FORMAT(msgs.created, '%Y/%m/%d %H:%i') as msg_date, 
+							DATE_FORMAT(msgs.created, '%Y/%m/%d %H:%i:%s') as msg_date, 
 							content
 					FROM messages msgs
 					INNER JOIN (
@@ -43,7 +43,7 @@ class Message extends AppModel {
 								    		max(created) as msg_date
 								    FROM messages
 								    WHERE (to_id = $id OR from_id = $id) AND content like '%".$search."%' 
-								    group by (CASE WHEN to_id = $id THEN from_id
+								    GROUP BY (CASE WHEN to_id = $id THEN from_id
 								    		  ELSE to_id 
 								    		  END
 								    		  )
@@ -54,6 +54,8 @@ class Message extends AppModel {
 				LEFT JOIN users on messages.id = users.id
 				ORDER BY msg_date DESC
     		";
+
+    	// echo $sql; exit;
 
     	$data['results'] = $this->query($sql." LIMIT ".$offset.",".$limit);
     	$tempData = $this->query($sql);
