@@ -13,7 +13,7 @@
 	?>
 	<div class="row">
 		<div class="col-md-3">
-			<?php echo $this->Html->image($photo, array('alt' => 'Photo')); ?>
+			<?php echo $this->Html->image($photo, array('alt' => 'Photo', 'class' => 'default-photo-size')); ?>
 		</div>
 		<div class="col-md-9">
 			<label> <?php echo $profile['User']['name'] ?> </label>

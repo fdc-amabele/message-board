@@ -44,6 +44,7 @@ span.select2-dropdown.select2-dropdown--below {
 .content-span{min-height: 139px; line-height: 126px;padding: 0 10px;}
 .created-span{text-align: right;padding: 0 10px;}
 
+.default-photo-size {    max-width: 262px;}
 .message-list .photo{
     width: 118px;
 }

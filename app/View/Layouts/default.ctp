@@ -30,7 +30,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		
 		echo $this->Html->css('bootstrap-4.3.1');
 		echo $this->Html->css('cake.generic');
-		// echo $this->Html->css('jquery-ui');
+		echo $this->Html->css('jquery-ui');
 		echo $this->Html->css('select2.min');
 		echo $this->Html->css('custom');
 
